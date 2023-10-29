@@ -22,7 +22,6 @@ export abstract class DeleteStoreItem<T extends WithId> extends StoreItemService
     return of(undefined)
       .pipe(
         map(() => {
-          // @ts-ignore
           this.setState(undefined);
         }),
       );

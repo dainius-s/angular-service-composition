@@ -1,10 +1,10 @@
-import { switchMap, take } from 'rxjs/operators';
+import { switchMap, first } from 'rxjs/operators';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { HttpClient}  from '@angular/common/http';
 import { StoreService } from '@shared/store/base/store.service';
 import { StoreConfig, WithId } from '@models';
 import { Directive } from '@angular/core';
-import {Observable, of} from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Directive()
 export abstract class StoreArrayService<T extends WithId> extends StoreService<T[]> implements Resolve<T[]> {
@@ -37,6 +37,6 @@ export abstract class StoreArrayService<T extends WithId> extends StoreService<T
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<T[]> {
-    return this.get$().pipe(take(1));
+    return this.get$().pipe(first());
   }
 }
