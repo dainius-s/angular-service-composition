@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
-import { applyMixins } from '@shared/helpers';
-import {CreateStoreItem, DeleteStoreItem, UpdateStoreItem} from '@shared/store/features';
 import { Apple } from '@models';
 import { HttpClient } from '@angular/common/http';
-import {StoreItemService} from '@shared/store/base/store-item.service';
-import {StoreService} from '@shared/store/base';
-import {Observable, of} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { StoreService } from '@shared/store/base';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
-export class AppleService extends StoreService<Apple> {
+export class AppleDuplicatedService extends StoreService<Apple> {
   constructor(http: HttpClient) {
     super(http, { path: 'apple' });
   }
