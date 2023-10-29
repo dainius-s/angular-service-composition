@@ -16,7 +16,7 @@ export abstract class StoreService<T> {
   ) {
     const {
       path,
-      defaultState = null,
+      defaultState,
     } = config;
 
     this.url = urlJoin(environment.apiUrl, path);
